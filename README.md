@@ -16,16 +16,22 @@ This credential is only authorized for use with Claude Code and cannot be used f
 
 ## 해결 방법
 
-[PR #13](https://github.com/anomalyco/opencode-anthropic-auth/pull/13)의 다층 우회 방식을 적용합니다.
+다층 우회 방식 + TTL 기반 캐시 최적화가 적용된 패치를 사용합니다.
 
 ### 우회 방식 설명
 
 | 방법 | 변환 예시 | 설명 |
 |------|----------|------|
 | Method 1 | `read_file` → `ReadFile_tool` | PascalCase + `_tool` 접미사 |
-| Method 2 | `read_file` → `read_file_a3f7k2` | 랜덤 접미사 (자동 폴백) |
+| Method 2 | `read_file` → `read_file_a3f7k2` | TTL 기반 접미사 (1시간 캐시) |
 
 Method 1이 차단되면 자동으로 Method 2로 전환됩니다.
+
+### TTL 캐시 최적화
+
+Method 2는 매 요청마다 랜덤 접미사를 생성하는 대신, **1시간 동안 동일한 접미사를 재사용**합니다:
+- Anthropic API 캐시 히트율 향상
+- 1시간마다 접미사 로테이션으로 탐지 회피
 
 ---
 
@@ -64,13 +70,9 @@ curl -fsSL https://bun.sh/install | bash
 mkdir -p ~/Developer/opencode-patch
 cd ~/Developer/opencode-patch
 
-# 플러그인 클론
-git clone https://github.com/anomalyco/opencode-anthropic-auth.git
+# 플러그인 클론 (TTL 최적화 버전)
+git clone -b pr-13 https://github.com/fivetaku/opencode-anthropic-auth.git
 cd opencode-anthropic-auth
-
-# PR #13 적용
-git fetch origin pull/13/head:pr-13
-git checkout pr-13
 bun install
 cd ..
 
@@ -162,6 +164,7 @@ opencode
 - [Issue #12: The auth no longer works](https://github.com/anomalyco/opencode-anthropic-auth/issues/12)
 - [PR #13: Multi-layered bypass](https://github.com/anomalyco/opencode-anthropic-auth/pull/13)
 - [OpenCode 원본 레포](https://github.com/anomalyco/opencode)
+- [패치된 플러그인 (TTL 최적화)](https://github.com/fivetaku/opencode-anthropic-auth/tree/pr-13)
 
 ---
 
@@ -183,14 +186,20 @@ This credential is only authorized for use with Claude Code and cannot be used f
 
 ## Solution
 
-Apply the multi-layered bypass from [PR #13](https://github.com/anomalyco/opencode-anthropic-auth/pull/13).
+Apply the multi-layered bypass with TTL-based cache optimization.
 
 ### Bypass Methods
 
 | Method | Example | Description |
 |--------|---------|-------------|
 | Method 1 | `read_file` → `ReadFile_tool` | PascalCase + `_tool` suffix |
-| Method 2 | `read_file` → `read_file_a3f7k2` | Random suffix (auto fallback) |
+| Method 2 | `read_file` → `read_file_a3f7k2` | TTL-based suffix (1hr cache) |
+
+### TTL Cache Optimization
+
+Method 2 reuses the same suffix for **1 hour** instead of generating a new one per request:
+- Improves Anthropic API cache hit rate
+- Rotates suffix hourly for detection avoidance
 
 ---
 
@@ -216,11 +225,9 @@ curl -fsSL https://raw.githubusercontent.com/fivetaku/opencode-oauth-fix/main/sc
 mkdir -p ~/Developer/opencode-patch
 cd ~/Developer/opencode-patch
 
-# 2. Clone and setup plugin with PR #13
-git clone https://github.com/anomalyco/opencode-anthropic-auth.git
+# 2. Clone plugin with TTL optimization
+git clone -b pr-13 https://github.com/fivetaku/opencode-anthropic-auth.git
 cd opencode-anthropic-auth
-git fetch origin pull/13/head:pr-13
-git checkout pr-13
 bun install
 cd ..
 

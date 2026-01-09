@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # OpenCode OAuth Fix Setup Script
-# https://github.com/chulrolee/opencode-oauth-fix
+# https://github.com/fivetaku/opencode-oauth-fix
+#
+# Features:
+# - Multi-layered bypass (Method 1: PascalCase, Method 2: TTL-based random)
+# - TTL-based cache optimization (1 hour suffix reuse)
 
 set -e
 
@@ -31,20 +35,19 @@ echo -e "${GREEN}[1/6]${NC} Creating patch directory..."
 mkdir -p "$PATCH_DIR"
 cd "$PATCH_DIR"
 
-# Clone or update plugin
-echo -e "${GREEN}[2/6]${NC} Setting up opencode-anthropic-auth plugin..."
+# Clone or update plugin (using fivetaku fork with TTL optimization)
+echo -e "${GREEN}[2/6]${NC} Setting up opencode-anthropic-auth plugin (TTL optimized)..."
 if [ -d "opencode-anthropic-auth" ]; then
     echo "  Plugin directory exists, updating..."
     cd opencode-anthropic-auth
-    git fetch origin pull/13/head:pr-13 2>/dev/null || true
+    git fetch origin pr-13 2>/dev/null || true
     git checkout pr-13
+    git pull origin pr-13 2>/dev/null || true
     bun install
     cd ..
 else
-    git clone https://github.com/anomalyco/opencode-anthropic-auth.git
+    git clone -b pr-13 https://github.com/fivetaku/opencode-anthropic-auth.git
     cd opencode-anthropic-auth
-    git fetch origin pull/13/head:pr-13
-    git checkout pr-13
     bun install
     cd ..
 fi
@@ -54,7 +57,7 @@ echo -e "${GREEN}[3/6]${NC} Setting up OpenCode..."
 if [ -d "opencode" ]; then
     echo "  OpenCode directory exists, updating..."
     cd opencode
-    git pull origin main 2>/dev/null || true
+    git pull origin dev 2>/dev/null || true
     bun install
 else
     git clone https://github.com/anomalyco/opencode.git
@@ -124,6 +127,10 @@ echo ""
 echo "=================================="
 echo -e "${GREEN}  Installation Complete!${NC}"
 echo "=================================="
+echo ""
+echo "Features:"
+echo "  - Multi-layered bypass (Method 1 + 2)"
+echo "  - TTL-based cache optimization (1hr)"
 echo ""
 echo "To apply changes to your current terminal:"
 echo -e "  ${YELLOW}source $SHELL_RC${NC}"
