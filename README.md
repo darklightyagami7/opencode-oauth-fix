@@ -32,13 +32,13 @@ Method 1이 차단되면 자동으로 Method 2로 전환됩니다.
 ## 빠른 설치 (원클릭)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/chulrolee/opencode-oauth-fix/main/scripts/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fivetaku/opencode-oauth-fix/main/scripts/setup.sh | bash
 ```
 
 또는 스크립트를 다운로드 후 실행:
 
 ```bash
-git clone https://github.com/chulrolee/opencode-oauth-fix.git
+git clone https://github.com/fivetaku/opencode-oauth-fix.git
 cd opencode-oauth-fix
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
@@ -197,7 +197,7 @@ Apply the multi-layered bypass from [PR #13](https://github.com/anomalyco/openco
 ## Quick Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/chulrolee/opencode-oauth-fix/main/scripts/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fivetaku/opencode-oauth-fix/main/scripts/setup.sh | bash
 ```
 
 ---
